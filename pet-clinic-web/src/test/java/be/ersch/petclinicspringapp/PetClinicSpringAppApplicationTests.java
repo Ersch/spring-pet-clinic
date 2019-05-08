@@ -1,4 +1,4 @@
-package petclinicspringapp;
+package be.ersch.petclinicspringapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
