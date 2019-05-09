@@ -5,7 +5,7 @@
 
     <groupId>be.ersch</groupId>
     <artifactId>pet-clinic-spring-app</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>pet-clinic-spring-app</name>
     <description>Spring training app</description>
 
@@ -25,7 +25,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:Ersch/spring-pet-clinic.git</developerConnection>
-        <tag>pet-clinic-spring-app-0.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
