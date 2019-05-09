@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
 
     <groupId>be.ersch</groupId>
     <artifactId>pet-clinic-spring-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>pet-clinic-spring-app</name>
     <description>Spring training app</description>
 
@@ -21,8 +20,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.0.M2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:Ersch/spring-pet-clinic.git</developerConnection>
+        <tag>pet-clinic-spring-app-0.0.1</tag>
+    </scm>
 
     <properties>
         <java.version>12</java.version>
@@ -42,6 +46,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
+                    <checkModificationExcludes>pom.xml</checkModificationExcludes>
+                    <checkModificationExcludes>**</checkModificationExcludes>
+
                     <goals>
                         install
                     </goals>
