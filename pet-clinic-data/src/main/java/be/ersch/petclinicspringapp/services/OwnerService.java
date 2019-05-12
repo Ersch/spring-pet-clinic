@@ -4,14 +4,8 @@ import be.ersch.petclinicspringapp.model.Owner;
 
 import java.util.Set;
 
-public interface OwnerService {
-
-    Owner findBtId(Long id);
-
-    Owner save(Owner owner);
+public interface OwnerService extends CrudService<Owner,Long> {
 
     Owner findByLastName(String lastName);
-
-    Set<Owner> findAll();
 
 }
