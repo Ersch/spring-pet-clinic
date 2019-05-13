@@ -3,7 +3,6 @@ package be.ersch.petclinicspringapp.services.map;
 import be.ersch.petclinicspringapp.model.Owner;
 import be.ersch.petclinicspringapp.model.Vet;
 import be.ersch.petclinicspringapp.services.CrudService;
-import com.sun.xml.bind.v2.model.core.ID;
 
 import java.util.Set;
 
