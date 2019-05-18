@@ -3,10 +3,11 @@ package be.ersch.petclinicspringapp.services.map;
 import be.ersch.petclinicspringapp.model.Owner;
 import be.ersch.petclinicspringapp.model.Vet;
 import be.ersch.petclinicspringapp.services.CrudService;
+import be.ersch.petclinicspringapp.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
 
     @Override
