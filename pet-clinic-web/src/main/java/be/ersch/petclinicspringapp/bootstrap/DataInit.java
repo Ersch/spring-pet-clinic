@@ -4,8 +4,7 @@ import be.ersch.petclinicspringapp.model.Owner;
 import be.ersch.petclinicspringapp.model.Vet;
 import be.ersch.petclinicspringapp.services.OwnerService;
 import be.ersch.petclinicspringapp.services.VetService;
-import be.ersch.petclinicspringapp.services.map.OwnerServiceMap;
-import be.ersch.petclinicspringapp.services.map.VetServiceMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +14,10 @@ public class DataInit implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataInit() {
+    public DataInit(OwnerService ownerService, VetService vetService) {
 
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
