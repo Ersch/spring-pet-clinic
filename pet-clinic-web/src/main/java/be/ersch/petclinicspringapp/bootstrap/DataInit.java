@@ -1,10 +1,11 @@
 package be.ersch.petclinicspringapp.bootstrap;
 
 import be.ersch.petclinicspringapp.model.Owner;
+import be.ersch.petclinicspringapp.model.PetType;
 import be.ersch.petclinicspringapp.model.Vet;
 import be.ersch.petclinicspringapp.services.OwnerService;
+import be.ersch.petclinicspringapp.services.PetTypeService;
 import be.ersch.petclinicspringapp.services.VetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +14,28 @@ public class DataInit implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataInit(OwnerService ownerService, VetService vetService) {
+    public DataInit(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType saveDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType saveCatPetType = petTypeService.save(cat);
+
+        System.out.println("Loaded PetTypes...");
+
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Toto");
