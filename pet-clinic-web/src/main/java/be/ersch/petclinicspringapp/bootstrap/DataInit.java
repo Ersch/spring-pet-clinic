@@ -1,6 +1,7 @@
 package be.ersch.petclinicspringapp.bootstrap;
 
 import be.ersch.petclinicspringapp.model.Owner;
+import be.ersch.petclinicspringapp.model.Pet;
 import be.ersch.petclinicspringapp.model.PetType;
 import be.ersch.petclinicspringapp.model.Vet;
 import be.ersch.petclinicspringapp.services.OwnerService;
@@ -8,6 +9,8 @@ import be.ersch.petclinicspringapp.services.PetTypeService;
 import be.ersch.petclinicspringapp.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataInit implements CommandLineRunner {
@@ -40,12 +43,31 @@ public class DataInit implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Toto");
         owner1.setLastName("Owner ");
+        owner1.setAddress("123 Long Street");
+        owner1.setCity("San Francisco");
+        owner1.setTelephone("+32 111 111 111");
+        Pet totosPet = new Pet();
+        totosPet.setOwner(owner1);
+        totosPet.setBirthDay(LocalDate.now());
+        totosPet.setName("Pluto");
+        totosPet.setPetType(dog);
+        owner1.getPets().add(totosPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Tata");
         owner2.setLastName("Owner ");
+        owner2.setAddress("123 Long Street");
+        owner2.setCity("San Francisco");
+        owner2.setTelephone("+32 111 111 111");
+
+        Pet tatasPet = new Pet();
+        tatasPet.setOwner(owner1);
+        tatasPet.setBirthDay(LocalDate.now());
+        tatasPet.setName("Miaous");
+        tatasPet.setPetType(cat);
+        owner2.getPets().add(tatasPet);
 
         ownerService.save(owner2);
 

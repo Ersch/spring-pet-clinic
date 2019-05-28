@@ -2,7 +2,7 @@ package be.ersch.petclinicspringapp.model;
 
 import java.time.LocalDate;
 
-public class Pet extends BaseEntity {
+public class Pet extends NamedEntity {
 
     private PetType petType;
     private Owner owner;
