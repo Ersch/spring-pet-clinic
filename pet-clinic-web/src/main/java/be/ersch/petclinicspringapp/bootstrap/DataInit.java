@@ -1,11 +1,9 @@
 package be.ersch.petclinicspringapp.bootstrap;
 
-import be.ersch.petclinicspringapp.model.Owner;
-import be.ersch.petclinicspringapp.model.Pet;
-import be.ersch.petclinicspringapp.model.PetType;
-import be.ersch.petclinicspringapp.model.Vet;
+import be.ersch.petclinicspringapp.model.*;
 import be.ersch.petclinicspringapp.services.OwnerService;
 import be.ersch.petclinicspringapp.services.PetTypeService;
+import be.ersch.petclinicspringapp.services.SpecialityService;
 import be.ersch.petclinicspringapp.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,17 +16,28 @@ public class DataInit implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialityService specialityService;
 
-    public DataInit(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataInit(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialityService = specialityService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
+        int count = petTypeService.findAll().size();
+
+        if (count == 0) {
+            loadData();
+        }
+
+    }
+
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
         PetType saveDogPetType = petTypeService.save(dog);
@@ -38,6 +47,18 @@ public class DataInit implements CommandLineRunner {
         PetType saveCatPetType = petTypeService.save(cat);
 
         System.out.println("Loaded PetTypes...");
+
+        Speciality radiology = new Speciality();
+        radiology.setDescription("Radiology");
+
+        Speciality savedRadiology = specialityService.save(radiology);
+
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+
+        Speciality savedSurgery = specialityService.save(surgery);
+
+        System.out.println("Loaded Specialities...");
 
 
         Owner owner1 = new Owner();
@@ -60,7 +81,7 @@ public class DataInit implements CommandLineRunner {
         owner2.setLastName("Owner ");
         owner2.setAddress("123 Long Street");
         owner2.setCity("San Francisco");
-        owner2.setTelephone("+32 111 111 111");
+        owner2.setTelephone("+32 222 111 111");
 
         Pet tatasPet = new Pet();
         tatasPet.setOwner(owner1);
@@ -76,12 +97,14 @@ public class DataInit implements CommandLineRunner {
         Vet vet1 = new Vet();
         vet1.setFirstName("Riri");
         vet1.setLastName("Vet");
+        vet1.getSpecialities().add(savedRadiology);
 
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Loulou");
         vet2.setLastName("Vet");
+        vet2.getSpecialities().add(savedSurgery);
 
         vetService.save(vet2);
 
