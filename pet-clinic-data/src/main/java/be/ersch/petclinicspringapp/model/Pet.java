@@ -1,11 +1,20 @@
 package be.ersch.petclinicspringapp.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Pet extends NamedEntity {
 
-    private PetType petType;
+    @Column(name = "name")
+    private String name;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private PetType petType;
+    @Column(name = "birth_date")
     private LocalDate birthDay;
 
     public PetType getPetType() {
