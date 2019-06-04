@@ -2,20 +2,28 @@ package be.ersch.petclinicspringapp.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Pet extends NamedEntity {
 
     @Column(name = "name")
     private String name;
+
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
     @ManyToOne
     @JoinColumn(name = "type_id")
     private PetType petType;
+
     @Column(name = "birth_date")
     private LocalDate birthDay;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     public PetType getPetType() {
         return petType;
@@ -39,5 +47,23 @@ public class Pet extends NamedEntity {
 
     public void setBirthDay(LocalDate birthDay) {
         this.birthDay = birthDay;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 }
