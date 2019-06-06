@@ -2,12 +2,14 @@ package be.ersch.petclinicspringapp.services.map;
 
 import be.ersch.petclinicspringapp.model.Speciality;
 import be.ersch.petclinicspringapp.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialityMapServiceImpl extends AbstractMapService<Speciality, Long> implements SpecialityService {
+@Profile({"default","map"})
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();
