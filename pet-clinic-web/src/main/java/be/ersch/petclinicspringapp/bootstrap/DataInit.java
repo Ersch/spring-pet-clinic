@@ -5,11 +5,12 @@ import be.ersch.petclinicspringapp.services.OwnerService;
 import be.ersch.petclinicspringapp.services.PetTypeService;
 import be.ersch.petclinicspringapp.services.SpecialityService;
 import be.ersch.petclinicspringapp.services.VetService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-
+@Slf4j
 @Component
 public class DataInit implements CommandLineRunner {
 
@@ -19,7 +20,6 @@ public class DataInit implements CommandLineRunner {
     private final SpecialityService specialityService;
 
     public DataInit(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
-
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
@@ -32,7 +32,11 @@ public class DataInit implements CommandLineRunner {
         int count = petTypeService.findAll().size();
 
         if (count == 0) {
+            log.info("***************");
+            log.info("Start data init");
             loadData();
+            log.info("Data loaded");
+            log.info("***************");
         }
 
     }
@@ -46,7 +50,7 @@ public class DataInit implements CommandLineRunner {
         cat.setName("Cat");
         PetType saveCatPetType = petTypeService.save(cat);
 
-        System.out.println("Loaded PetTypes...");
+        log.info("Loaded PetTypes...");
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
@@ -58,7 +62,7 @@ public class DataInit implements CommandLineRunner {
 
         Speciality savedSurgery = specialityService.save(surgery);
 
-        System.out.println("Loaded Specialities...");
+        log.info("Loaded Specialities...");
 
 
         Owner owner1 = new Owner();
@@ -92,7 +96,7 @@ public class DataInit implements CommandLineRunner {
 
         ownerService.save(owner2);
 
-        System.out.println("Loaded Owners...");
+        log.info("Loaded Owners...");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Riri");
@@ -108,6 +112,6 @@ public class DataInit implements CommandLineRunner {
 
         vetService.save(vet2);
 
-        System.out.println("Loaded Vets...");
+        log.info("Loaded Vets...");
     }
 }
