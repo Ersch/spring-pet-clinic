@@ -1,5 +1,6 @@
 be/ersch/petclinicspringapp/model/NamedEntity.class
 be/ersch/petclinicspringapp/repositories/PetTypeRepository.class
+be/ersch/petclinicspringapp/model/Owner$OwnerBuilder.class
 be/ersch/petclinicspringapp/repositories/OwnerRepository.class
 be/ersch/petclinicspringapp/services/springdatajpa/OwnerSDJpaService.class
 be/ersch/petclinicspringapp/model/PetType.class
