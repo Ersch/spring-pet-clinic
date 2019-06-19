@@ -1,9 +1,12 @@
 package be.ersch.petclinicspringapp.services.map;
 
 import be.ersch.petclinicspringapp.model.Owner;
+import be.ersch.petclinicspringapp.repositories.OwnerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +20,72 @@ class OwnerServiceMapTest {
 
     @BeforeEach
     void setUp() {
-        ownerServiceMap = new OwnerServiceMap(new PetTypeServiceMap(), new PetServiceMap());
+        ownerServiceMap = new OwnerServiceMap(new PetTypeServiceMap(), new PetServiceMap(), new OwnerRepository() {
+            @Override
+            public Owner findByLastName(String lastName) {
+                return null;
+            }
+
+            @Override
+            public List<Owner> findAllByLastNameLike(String lastName) {
+                return null;
+            }
+
+            @Override
+            public <S extends Owner> S save(S entity) {
+                return null;
+            }
+
+            @Override
+            public <S extends Owner> Iterable<S> saveAll(Iterable<S> entities) {
+                return null;
+            }
+
+            @Override
+            public Optional<Owner> findById(Long aLong) {
+                return Optional.empty();
+            }
+
+            @Override
+            public boolean existsById(Long aLong) {
+                return false;
+            }
+
+            @Override
+            public Iterable<Owner> findAll() {
+                return null;
+            }
+
+            @Override
+            public Iterable<Owner> findAllById(Iterable<Long> longs) {
+                return null;
+            }
+
+            @Override
+            public long count() {
+                return 0;
+            }
+
+            @Override
+            public void deleteById(Long aLong) {
+
+            }
+
+            @Override
+            public void delete(Owner entity) {
+
+            }
+
+            @Override
+            public void deleteAll(Iterable<? extends Owner> entities) {
+
+            }
+
+            @Override
+            public void deleteAll() {
+
+            }
+        });
         Owner owner = new Owner();
         owner.setId(ownerId);
         owner.setLastName(lastName);

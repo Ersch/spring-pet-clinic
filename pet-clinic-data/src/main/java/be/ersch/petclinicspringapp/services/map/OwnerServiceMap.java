@@ -2,6 +2,7 @@ package be.ersch.petclinicspringapp.services.map;
 
 import be.ersch.petclinicspringapp.model.Owner;
 import be.ersch.petclinicspringapp.model.Pet;
+import be.ersch.petclinicspringapp.repositories.OwnerRepository;
 import be.ersch.petclinicspringapp.services.CrudService;
 import be.ersch.petclinicspringapp.services.OwnerService;
 import be.ersch.petclinicspringapp.services.PetService;
@@ -9,6 +10,7 @@ import be.ersch.petclinicspringapp.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -17,10 +19,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     private final PetTypeService petTypeService;
     private final PetService petService;
+    private final OwnerRepository ownerRepository;
 
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService,OwnerRepository ownerRepository) {
         this.petTypeService = petTypeService;
         this.petService = petService;
+        this.ownerRepository = ownerRepository;
     }
 
     @Override
@@ -80,4 +84,8 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                 .orElse(null);
 
     }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);    }
 }
