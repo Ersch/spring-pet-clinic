@@ -1,7 +1,7 @@
 package be.ersch.petclinicspringapp.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,8 +10,24 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Pet extends NamedEntity {
+@Table(name = "pets")
+public class Pet extends BaseEntity {
+
+    @Builder
+    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits) {
+        super(id);
+        this.name = name;
+        this.petType = petType;
+        this.owner = owner;
+        this.birthDate = birthDate;
+
+        if (visits == null || visits.size() > 0) {
+            this.visits = visits;
+        }
+    }
 
     @Column(name = "name")
     private String name;
@@ -31,14 +47,9 @@ public class Pet extends NamedEntity {
     private Set<Visit> visits = new HashSet<>();
 
 
-    @Override
-    public String getName() {
-        return name;
-    }
+    @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
