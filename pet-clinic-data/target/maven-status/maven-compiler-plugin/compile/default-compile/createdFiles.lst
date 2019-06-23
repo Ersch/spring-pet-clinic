@@ -17,6 +17,7 @@ be/ersch/petclinicspringapp/model/Pet.class
 be/ersch/petclinicspringapp/repositories/PetRepository.class
 be/ersch/petclinicspringapp/model/Person.class
 be/ersch/petclinicspringapp/services/map/AbstractMapService.class
+be/ersch/petclinicspringapp/model/Pet$PetBuilder.class
 be/ersch/petclinicspringapp/services/OwnerService.class
 be/ersch/petclinicspringapp/services/PetTypeService.class
 be/ersch/petclinicspringapp/services/map/VetMapService.class
@@ -32,5 +33,6 @@ be/ersch/petclinicspringapp/services/PetService.class
 be/ersch/petclinicspringapp/services/map/OwnerServiceMap.class
 be/ersch/petclinicspringapp/model/BaseEntity.class
 be/ersch/petclinicspringapp/services/map/VisitMapService.class
+be/ersch/petclinicspringapp/model/PetType$PetTypeBuilder.class
 be/ersch/petclinicspringapp/repositories/SpecialityRepository.class
 be/ersch/petclinicspringapp/services/springdatajpa/PetSDJpaService.class

@@ -73,7 +73,7 @@ public class DataInit implements CommandLineRunner {
         owner1.setTelephone("+32 111 111 111");
         Pet totosPet = new Pet();
         totosPet.setOwner(owner1);
-        totosPet.setBirthDay(LocalDate.now());
+        totosPet.setBirthDate(LocalDate.now());
         totosPet.setName("Pluto");
         totosPet.setPetType(dog);
         owner1.getPets().add(totosPet);
@@ -89,7 +89,7 @@ public class DataInit implements CommandLineRunner {
 
         Pet tatasPet = new Pet();
         tatasPet.setOwner(owner1);
-        tatasPet.setBirthDay(LocalDate.now());
+        tatasPet.setBirthDate(LocalDate.now());
         tatasPet.setName("Miaous");
         tatasPet.setPetType(cat);
         owner2.getPets().add(tatasPet);

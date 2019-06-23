@@ -1,4 +1,5 @@
 be/ersch/petclinicspringapp/controllers/IndexController.class
+be/ersch/petclinicspringapp/controllers/PetController.class
 be/ersch/petclinicspringapp/PetClinicSpringAppApplication.class
 be/ersch/petclinicspringapp/controllers/OwnerController.class
 be/ersch/petclinicspringapp/bootstrap/DataInit.class
