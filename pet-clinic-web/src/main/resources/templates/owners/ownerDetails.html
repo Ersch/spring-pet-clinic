@@ -47,7 +47,7 @@
             <dd th:text="${pet.name}" /></dd>
             <dt>Birth Date</dt>
             <dd
-              th:text="${#temporals.format(pet.getBirthDate(), 'yyyy-MM-dd')}" /></dd>
+              th:text="${#temporals.format(pet.getBirthDate(), 'dd-MM-yyyy')}" /></dd>
             <dt>Type</dt>
             <dd th:text="${pet.petType}" /></dd>
           </dl>
@@ -61,7 +61,7 @@
               </tr>
             </thead>
             <tr th:each="visit : ${pet.visits}">
-              <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
+              <td th:text="${#temporals.format(visit.date, 'dd-MM-YYYY')}"></td>
               <td th:text="${visit?.description}"></td>
             </tr>
             <tr>

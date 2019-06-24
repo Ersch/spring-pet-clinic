@@ -1,6 +1,8 @@
+/Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/controllers/VisitController.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/PetClinicSpringAppApplication.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/controllers/VetController.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/bootstrap/DataInit.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/controllers/OwnerController.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/controllers/PetController.java
 /Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/controllers/IndexController.java
+/Users/ersch/IdeaProjects/spring-pet-clinic/pet-clinic-web/src/main/java/be/ersch/petclinicspringapp/formatters/PetTypeFormatter.java

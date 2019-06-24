@@ -45,7 +45,7 @@ public class Pet extends BaseEntity {
 
 
     @Column(name = "birth_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
 
 

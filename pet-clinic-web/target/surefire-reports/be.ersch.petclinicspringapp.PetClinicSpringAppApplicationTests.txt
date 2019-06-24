@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: be.ersch.petclinicspringapp.PetClinicSpringAppApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in be.ersch.petclinicspringapp.PetClinicSpringAppApplicationTests
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in be.ersch.petclinicspringapp.PetClinicSpringAppApplicationTests
